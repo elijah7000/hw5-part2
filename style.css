@@ -1,0 +1,74 @@
+/* index.html */
+
+a {
+  text-decoration-line: none;
+  color: inherit;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.navMenu {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  list-style: none;
+  padding: 20px;
+}
+
+.logo {
+  color: #e1b12c;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.orderBtn {
+  padding: 50px;
+  font-size: 30px;
+  border-radius: 15px;
+}
+
+/* slsectMenu */
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#beverageSelect {
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
+button {
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
+/* condiments */
+
+.labelcheck {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+/* orderStatus */
+
+.orderCheck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}

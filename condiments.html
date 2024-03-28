@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select Condiments</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="background-color: #7f8fa6">
+    <div class="wrapper">
+      <a href="/index.html">Home</a>
+      <h1>Select Condiments</h1>
+      <div class="labelcheck">
+        <input type="checkbox" id="milkCheckbox" value="Milk" />
+        <label for="milkCheckbox">Milk</label><br />
+        <input type="checkbox" id="mochaCheckbox" value="Mocha" />
+        <label for="mochaCheckbox">Mocha</label><br />
+        <input type="checkbox" id="soyCheckbox" value="Soy" />
+        <label for="soyCheckbox">Soy</label><br />
+        <input type="checkbox" id="whipCheckbox" value="Whip" />
+        <label for="whipCheckbox">Whip</label><br />
+      </div>
+
+      <button onclick="saveCondiments()">Save Condiments</button>
+    </div>
+    <script>
+      function saveCondiments() {
+        const selectedCondiments = [];
+        if (document.getElementById("milkCheckbox").checked) {
+          selectedCondiments.push("Milk");
+        }
+        if (document.getElementById("mochaCheckbox").checked) {
+          selectedCondiments.push("Mocha");
+        }
+        if (document.getElementById("soyCheckbox").checked) {
+          selectedCondiments.push("Soy");
+        }
+        if (document.getElementById("whipCheckbox").checked) {
+          selectedCondiments.push("Whip");
+        }
+        localStorage.setItem(
+          "selectedCondiments",
+          JSON.stringify(selectedCondiments)
+        );
+        window.location.href = "orderStatus.html";
+      }
+    </script>
+  </body>
+</html>

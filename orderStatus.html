@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Status</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="background-color: #7f8fa6">
+    <div class="wrapper">
+      <a href="/index.html">Home</a>
+      <h1>Order Status</h1>
+      <div id="orderDetails">
+        <p id="orderId"></p>
+        <p id="orderDescription"></p>
+        <p id="orderCost"></p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+        const selectedBeverage = localStorage.getItem("selectedBeverage");
+        const selectedCondiments = JSON.parse(
+          localStorage.getItem("selectedCondiments")
+        );
+
+        // Send order data to backend
+        const orderData = {
+          beverage: selectedBeverage,
+          condiments: selectedCondiments,
+        };
+
+        try {
+          const response = await fetch("http://localhost:8080/orders/add", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderData),
+          });
+
+          if (response.ok) {
+            const receipt = await response.json();
+            document.getElementById(
+              "orderId"
+            ).textContent = `Order ID: ${receipt.id}`;
+            document.getElementById(
+              "orderDescription"
+            ).textContent = `Description: ${receipt.description}`;
+            document.getElementById(
+              "orderCost"
+            ).textContent = `Cost: ${receipt.cost}`;
+          } else {
+            console.error("Failed to add order:", response.status);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      });
+    </script>
+  </body>
+</html>

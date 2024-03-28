@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select Menu</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="background-color: #7f8fa6">
+    <div class="wrapper">
+      <a href="/index.html">Home</a>
+      <h1>Select Menu</h1>
+      <div class="select">
+        <select id="beverageSelect">
+          <option value="Dark Roast">Dark Roast</option>
+          <option value="Espresso">Espresso</option>
+          <option value="House Blend">House Blend</option>
+          <option value="Decaf">Decaf</option>
+        </select>
+        <button onclick="saveSelection()">Save Selection</button>
+      </div>
+    </div>
+    <script>
+      function saveSelection() {
+        const selectedBeverage =
+          document.getElementById("beverageSelect").value;
+        localStorage.setItem("selectedBeverage", selectedBeverage);
+        window.location.href = "condiments.html";
+      }
+    </script>
+  </body>
+</html>
